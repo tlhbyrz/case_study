@@ -1,11 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+*:root{
+  --primary-color: #FF6000;
+  --light-orange-bg: #FF60001C;
+  --main-gray: #EEEEEE;
+  --light-gray: #B0B0B0;
+  --product-border-color: #E5E5E5;
+  --main-text-color: #484848;
+  --old-price-color: #9B9B9B;
+  --search-icon: #333333;
+  --white-text: #ffff;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,4 +46,11 @@ a{
 
 ul{
   list-style: none;
+}
+
+.container{
+  width: 100%;
+  max-width: 1320px;
+  padding: 0 20px;
+  margin: 0 auto;
 }

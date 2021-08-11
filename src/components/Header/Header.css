@@ -1,0 +1,77 @@
+
+
+header{
+    border-bottom: 2px solid var(--product-border-color);
+}
+
+.header{
+    width: 100%;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 211px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.search-box{
+    flex: 1;
+    max-width: 695px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    background: var(--main-gray);
+    border-radius: 50px;
+    padding: 15px 27px;
+    margin: 0 20px;
+}
+
+.search-box svg{
+    fill: var(--search-icon);
+    margin-right: 12px;
+}
+
+.search-box .search-input{
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.search-box .search-input::placeholder{
+    color: var(--light-gray);
+}
+
+.header button{
+    position: relative;
+    width: 118px;
+    height: 48px;
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    color: var(--light-gray);
+    font-size: 17px;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.header button .counter-badge{
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white-text);
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
