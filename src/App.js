@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import HomeScreen from "./pages/Home"
-import NotFoundScreen from "./pages/Home"
+import NotFoundScreen from "./pages/NotFound"
 import Header from "./components/Header"
 
 function App() {
@@ -10,7 +10,8 @@ function App() {
       <main className="container">
         <Router>
           <Switch>
-            <Route path='/' component={HomeScreen} exact />
+            <Route path='/' component={HomeScreen} exact/>
+            <Route path='/anasayfa' component={HomeScreen} exact />
             <Route path='*' component={NotFoundScreen} />
           </Switch>
         </Router>

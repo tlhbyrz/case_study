@@ -1,0 +1,149 @@
+
+.productlist-section{
+    flex: 1;
+    padding-top: 20px;
+}
+
+.product-list{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 14px;
+}
+
+.product{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product:hover .product-brand,
+.product:hover .product-price{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.product:hover .image-wrapper{
+    border: none;
+}
+
+.product:hover .product-hover-showcase{
+    opacity: 1;
+    visibility: visible;
+}
+
+.product:hover{
+    border: 1px solid var(--product-border-color);
+    border-radius: 10px;
+}
+
+.image-wrapper{
+    width: 100%;
+    padding: 4px 15px;
+    border: 1px solid var(--product-border-color);
+    border-radius: 10px;
+}
+
+.image-wrapper img{
+    object-fit: cover;
+}
+
+.product-details{
+    width: 100%;
+    height: 100%;
+    padding:  0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-title,
+.product-brand{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.product-title span{
+    width: 100%;
+    font-size: 12px;
+}
+
+.product-brand p{
+    font-size: 12px;
+    color: var(--main-text-color);
+}
+
+.product-brand p span{
+    font-weight: bold;
+}
+
+.product-price{
+    margin-top: 15px;
+}
+
+.product-price h6{
+    color: var(--primary-color);
+    font-weight: 900;
+}
+
+.product-price h6 span{
+    text-decoration: line-through;
+    color: var(--old-price-color);
+    margin-right: 4px;
+}
+
+.product-hover-showcase{
+    visibility: hidden;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.add-to-basket-btn{
+    width: 100%;
+    height: 32px;
+    background: var(--light-orange-bg);
+    color: var(--primary-color);
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.info-message{
+    width: 100%;
+    background: var(--light-gray);
+    color: var(--main-text-color);
+    border-radius: 4px;
+}
+
+.info-message p{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px;
+    color: var(--main-text-color);
+}
+
+@media screen and (max-width: 1200px){
+    .product-list{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 850px){
+    .product-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px){
+    .product-list{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+

@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Header.css"
+import AppleImg from "../../assets/apple1.png"
 
 const Header = () => {
     return (
@@ -15,6 +16,19 @@ const Header = () => {
                     </div>
                     <button>
                         Sepetim <span className="counter-badge">4</span>
+                        <ul className="basket-items">
+                            {
+                                Array(3).fill("").map((item, index) =>(
+                                    <li className="basket-item" key={index}>
+                                        <img src={AppleImg} alt="" />
+                                        <div className="basket-item-details">
+                                            <span>iPhone 11 Kırmızı Kılıflı Garantili Telefon</span>
+                                            <button>Kaldır</button>
+                                        </div>
+                                    </li>
+                                ))
+                            }
+                        </ul>
                     </button>
                 </div>
             </div>

@@ -14,9 +14,13 @@
   --light-gray: #B0B0B0;
   --product-border-color: #E5E5E5;
   --main-text-color: #484848;
+  --sidebar-text-color: #646464;
   --old-price-color: #9B9B9B;
   --search-icon: #333333;
   --white-text: #ffff;
+  --apply-btn: #90D659;
+  --decline-btn: #D65959;
+
 }
 
 body {
@@ -48,9 +52,25 @@ ul{
   list-style: none;
 }
 
+img{
+  width: 100%;
+}
+
+button{
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
 .container{
   width: 100%;
   max-width: 1320px;
   padding: 0 20px;
   margin: 0 auto;
+}
+
+.page-content{
+  width: 100%;
+  display: flex;
+  padding-bottom: 200px;
 }

@@ -26,7 +26,7 @@ header{
     align-items: center;
     background: var(--main-gray);
     border-radius: 50px;
-    padding: 15px 27px;
+    padding: 0px 27px;
     margin: 0 20px;
 }
 
@@ -37,6 +37,7 @@ header{
 
 .search-box .search-input{
     flex: 1;
+    padding: 15px 0;
     background: transparent;
     border: none;
     outline: none;
@@ -56,9 +57,10 @@ header{
     border-radius: 4px;
     color: var(--light-gray);
     font-size: 17px;
-    background: transparent;
-    cursor: pointer;
+    background: var(--white-text);
+    cursor: unset;
     font-weight: 400;
+    z-index: 10;
 }
 
 .header button .counter-badge{
@@ -74,4 +76,71 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.header > button:hover{
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid var(--white-text);
+}
+
+.header > button:hover  .basket-items{
+    opacity: 1;
+    visibility: visible;
+}
+
+.basket-items{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 46px;
+    right: -1px;
+    width: 360px;
+    border: 1px solid var(--light-gray);
+    padding: 30px;
+    border-radius: 8px 0px 8px 8px;
+    background: var(--white-text);
+    transition: 300ms;
+    z-index: 1;
+}
+
+.basket-item{
+    display: flex;
+    margin-bottom: 30px;
+    padding-right: 30px;
+}
+
+.basket-item:last-child{
+    margin-bottom: 0px;
+}
+
+.basket-item img{
+    width: 40px;
+    object-fit: cover;
+    max-height: 60px;
+    margin-right: 20px;
+}
+
+.basket-item-details{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.basket-item-details span{
+    text-align: left;
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--main-text-color);
+}
+
+.basket-item-details button{
+    width: 48px;
+    height: 16px;
+    border-radius: 4px;
+    font-size: 10px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    cursor: pointer;
 }
