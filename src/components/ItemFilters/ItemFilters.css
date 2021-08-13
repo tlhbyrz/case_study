@@ -4,6 +4,12 @@
     width: 200px;
 }
 
+.filter-section > ul{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
 .filter-category-item{
     margin-top: 20px;
 }

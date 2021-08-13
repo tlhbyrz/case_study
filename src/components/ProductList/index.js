@@ -1,45 +1,56 @@
 import React from 'react'
 import "./ProductList.css"
+import { useDispatch, useSelector } from "react-redux";
+import { addItemTobasket } from '../../store/actions/basketActions';
 import Modal from "../confirmModal"
-import AppleImg1 from "../../assets/apple1.png"
+import { products } from '../../data/products'
 
 const ProductList = () => {
+    const dispatch = useDispatch();
+    const basketReducer = useSelector((state) => state.basketReducer);
+    const { basket } = basketReducer
+
+    function addItem(item){
+        dispatch(addItemTobasket(item))
+    }
+
+
     return (
         <section className="productlist-section">
             <Modal show={false} />
             <ul className="product-list">
                 {
-                    Array(7).fill("1").map((item, index) => (
-                        <li className="product" key={index}>
+                    products.map((item, index) => (
+                        <li className="product" key={item.id}>
                             <div className="image-wrapper">
-                                <img src={AppleImg1} alt="phone-product" />
+                                <img src={item.image} alt="phone-product" />
                             </div>
                             <ul className="product-details">
                                 <li className="product-title">
                                     <span>
-                                        Apple iPhone 11 Pro Maxi Phone 11 Pro Max iPhone 11 (Max 2 Line)...
+                                        {item.title}
                                     </span>
                                 </li>
                                 <li className="product-brand">
                                     <p>
-                                        <span>Marka:</span> Apple 
+                                        <span>Marka:</span> {item.brand} 
                                     </p>
                                     <p>
-                                        <span>Renk:</span> Siyah 
+                                        <span>Renk:</span> {item.color} 
                                     </p>
                                 </li>
                                 <li className="product-price">
-                                    <h5 className="product-new-price">90,85 TL</h5>
+                                    <h5 className="product-new-price">{item.price}</h5>
                                     <h6 className="product-old-price">
-                                        <span>124,00 TL</span> 12%
+                                        <span>{item.oldPrice}</span> {item.discount}
                                     </h6>
                                 </li>
                             </ul>
                             <div className="product-hover-showcase">
-                                <button className="add-to-basket-btn">Sepete Ekle</button>
-                                <div className="info-message">
+                                <button className="add-to-basket-btn" onClick={() => addItem(item)}>Sepete Ekle</button>
+                                {/* <div className="info-message">
                                     <p>Bu ürünü sepete ekleyemezsiniz.</p>
-                                </div>
+                                </div> */}
                             </div>
                         </li>
                     ))
