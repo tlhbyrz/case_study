@@ -41,7 +41,7 @@ const ProductList = () => {
                                             </p>
                                         </li>
                                         <li className="product-price">
-                                            <h5 className="product-new-price">{item.price}</h5>
+                                            <h5 className="product-new-price">{item.price} TL</h5>
                                             <h6 className="product-old-price">
                                                 <span>{item.oldPrice}</span> {item.discount}
                                             </h6>

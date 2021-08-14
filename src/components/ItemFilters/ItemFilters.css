@@ -41,3 +41,7 @@
 .filter-list button:hover{
     color: var(--primary-color);
 }
+
+.active-filter-btn{
+    color: var(--primary-color) !important;
+}
