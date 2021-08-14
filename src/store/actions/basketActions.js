@@ -28,7 +28,7 @@ export const deleteItemFrombasket = (id) => async (dispatch, getState) => {
 
     try {
         const basket = getState().basketReducer.basket;
-        const filtered = basket.filter(item => item.id === id)
+        const filtered = basket.filter(item => item.id !== id)
 
         dispatch({
             type: DELETE_ITEM_FROM_BASKET,

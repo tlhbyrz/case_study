@@ -4,6 +4,12 @@
     padding-top: 20px;
 }
 
+.no-product-found{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .product-list{
     width: 100%;
     display: grid;

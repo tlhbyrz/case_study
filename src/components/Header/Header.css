@@ -49,7 +49,7 @@ header{
     color: var(--light-gray);
 }
 
-.header button{
+.header .show-basket-btn{
     position: relative;
     width: 118px;
     height: 48px;
@@ -61,9 +61,12 @@ header{
     cursor: unset;
     font-weight: 400;
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.header button .counter-badge{
+.header .show-basket-btn .counter-badge{
     position: absolute;
     top: -9px;
     right: -9px;
@@ -78,12 +81,17 @@ header{
     align-items: center;
 }
 
-.header > button:hover{
+.header .show-basket-btn:focus-within{
     border-radius: 4px 4px 0 0;
     border-bottom: 1px solid var(--white-text);
 }
 
-.header > button:hover  .basket-items{
+/* .header .show-basket-btn:hover .basket-items{
+    opacity: 1;
+    visibility: visible;
+} */
+
+.header .show-basket-btn:focus-within .basket-items{
     opacity: 1;
     visibility: visible;
 }
@@ -95,6 +103,8 @@ header{
     top: 46px;
     right: -1px;
     width: 360px;
+    height: 300px;
+    overflow-y: auto;
     border: 1px solid var(--light-gray);
     padding: 30px;
     border-radius: 8px 0px 8px 8px;
@@ -143,4 +153,16 @@ header{
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     cursor: pointer;
+}
+
+.no-items-in-basket{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-items-in-basket p {
+    text-align: center;
 }

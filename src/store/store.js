@@ -3,9 +3,11 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { basketReducer } from "./reducers/basketReducer";
+import { productsReducer } from "./reducers/productsReducer";
 
 const reducer = combineReducers({
     basketReducer,
+    productsReducer
 })
 
 const basketInfosFromStorage = localStorage.getItem('productList')

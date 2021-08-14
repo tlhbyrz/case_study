@@ -1,7 +1,29 @@
 import React from 'react'
 import "./ConfirmModal.css"
+import { useDispatch } from "react-redux";
+import { deleteItemFrombasket } from '../../store/actions/basketActions';
+import toast from 'react-hot-toast';
 
-const confirmModal = ({show}) => {
+
+const ConfirmModal = ({show, removeItem, setShowModal, productId}) => {
+    const dispatch = useDispatch();
+    function removeItem(){
+        toast.promise(dispatch(deleteItemFrombasket(productId)), 
+            {
+                success: `Ürün sepetten kaldırıldı!`,
+                error: 'Hata oluştu. Lütfen daha sonra tekrar deneyiniz!',
+            },
+            {
+                success: {
+                    duration: 1750,
+                },
+                error: {
+                    duration: 2500,
+                }
+            });
+        setShowModal(false);
+    }
+
     return (
         <div className={`modal ${show && "modal-active"}`}>
             <div className="modal-header">
@@ -15,12 +37,12 @@ const confirmModal = ({show}) => {
                     It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentiall....
                 </p>
                 <div className="modal-actions">
-                    <button>Evet</button>
-                    <button>Hayır</button>
+                    <button onClick={() => removeItem()}>Evet</button>
+                    <button onClick={() => setShowModal(false)}>Hayır</button>
                 </div>
             </div>
         </div>
     )
 }
 
-export default confirmModal
+export default ConfirmModal
