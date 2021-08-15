@@ -3,6 +3,7 @@ import { SET_SEARCH_TEXT,
     SET_BRAND_FILTER,
     SET_SORT_TYPE,
     SET_PAGE,
+    SET_TOTAL_PAGE,
     SET_PRODUCTS_LOADING,
     SET_PRODUCTS_ERROR } from "../types"
 import { products } from "../../data/products"
@@ -34,6 +35,12 @@ export const productsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentPage: action.payload,
+                loading: false
+            } 
+        case SET_TOTAL_PAGE:
+            return {
+                ...state,
+                totalPage: action.payload,
                 loading: false
             } 
         case SET_COLOR_FILTER:

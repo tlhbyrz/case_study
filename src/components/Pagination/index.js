@@ -1,19 +1,27 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { changePageNumber } from '../../store/actions/productsActions';
+import { changePageNumber, changeTotalPageCount } from '../../store/actions/productsActions';
+import { MAX_PAGE_ITEMS } from '../../data/constants';
+import { useHistory } from 'react-router';
 import "./Pagination.css"
 
 const Pagination = () => {
+    let history = useHistory();
     const dispatch = useDispatch();
     const productsReducer = useSelector((state) => state.productsReducer);
-    const { totalPage, currentPage } = productsReducer
+    const { totalPage, currentPage, filteredProducts } = productsReducer
 
     function changePage(page){
         if(page > totalPage || page === 0){
             return
         }
         dispatch(changePageNumber(page))
+        history.push(`/products/${page}`)
     }
+
+    useEffect(() =>{
+        dispatch(changeTotalPageCount(Math.ceil(filteredProducts.length / MAX_PAGE_ITEMS)))
+    }, [filteredProducts])
     
     return (
         <section className="pagination">
@@ -26,7 +34,8 @@ const Pagination = () => {
             <div className="paginate-content">
                 {
                     Array(totalPage).fill("").map((_, index) => (
-                        <button onClick={() => changePage(index +1)} className={`paginate-item ${(currentPage === index +1) && "active-page"}`}>
+                        <button onClick={() => changePage(index +1)} key={index}
+                            className={`paginate-item ${(currentPage === index +1) && "active-page"}`}>
                             <p>{ index + 1 }</p>
                         </button>
                     ))

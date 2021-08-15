@@ -3,7 +3,7 @@ import "./ProductList.css"
 import { useDispatch, useSelector } from "react-redux";
 import { addItemTobasket } from '../../store/actions/basketActions';
 import { MAX_PAGE_ITEMS } from '../../data/constants';
-
+  
 const ProductList = () => {
     const dispatch = useDispatch();
     const basketReducer = useSelector((state) => state.basketReducer);
@@ -14,7 +14,6 @@ const ProductList = () => {
     function addItem(item){
         dispatch(addItemTobasket(item))
     }
-
 
     return (
         <section className="productlist-section">
