@@ -2,6 +2,7 @@ import React from 'react'
 import PageBanner from "../components/PageBanner"
 import ItemFilters from "../components/ItemFilters"
 import ProductList from "../components/ProductList"
+import Pagination from '../components/Pagination'
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
                 <ItemFilters />
                 <ProductList />
             </div>
+            <Pagination />
         </div>
     )
 }

@@ -27,9 +27,9 @@ export const sortProducts = (type) => async (dispatch, getState) => {
         const { filteredProducts } = getState().productsReducer;
         let sortedArr = [];
         if(type === SORT_TYPES.LowestPrice){
-            sortedArr = filteredProducts.sort((a, b) => a.price - b.price)
+            sortedArr = filteredProducts.sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
         }else if(type === SORT_TYPES.HighestPrice){
-            sortedArr = filteredProducts.sort((a, b) => b.price - a.price)
+            sortedArr = filteredProducts.sort((a, b) => parseFloat(b.price) - parseFloat(a.price))
         }else if(type === SORT_TYPES.NewlyAdded){
             sortedArr = filteredProducts.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
         }else if(type === SORT_TYPES.OldAdded){
@@ -57,7 +57,7 @@ export const filterByColor = (color) => async (dispatch, getState) => {
     dispatch({ type: SET_PRODUCTS_LOADING })
 
     try {
-        const {allProducts, filteredProducts, filteredColor, filteredBrand } = getState().productsReducer;
+        const {allProducts, filteredProducts, filteredColor, filteredBrand, sortType } = getState().productsReducer;
         let result = [];
 
         if(filteredColor.length > 0 && filteredBrand.length === 0){
@@ -86,6 +86,10 @@ export const filterByColor = (color) => async (dispatch, getState) => {
                 color
             }
         })
+
+        if(sortType){
+            dispatch(sortProducts(sortType))
+        }
     } catch (error) {
         console.log(error.message)
         dispatch({
@@ -100,7 +104,7 @@ export const filterByBrand = (brand) => async (dispatch, getState) => {
     dispatch({ type: SET_PRODUCTS_LOADING })
 
     try {
-        const {allProducts, filteredProducts, filteredColor, filteredBrand } = getState().productsReducer;
+        const {allProducts, filteredProducts, filteredColor, filteredBrand, sortType } = getState().productsReducer;
         let result = [];
 
         if(filteredBrand.length > 0 && filteredColor.length === 0){
@@ -129,6 +133,10 @@ export const filterByBrand = (brand) => async (dispatch, getState) => {
                 brand
             }
         })
+
+        if(sortType){
+            dispatch(sortProducts(sortType))
+        }
     } catch (error) {
         console.log(error.message)
         dispatch({

@@ -7,7 +7,7 @@ const initialState = {
     searchText: "",
     filteredColor: "",
     filteredBrand: "",
-    sortType: null,
+    sortType: "",
     loading: false,
     error: null
 }

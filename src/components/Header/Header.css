@@ -84,6 +84,7 @@ header{
 .header .show-basket-btn:focus-within{
     border-radius: 4px 4px 0 0;
     border-bottom: 1px solid var(--white-text);
+    color: var(--primary-color);
 }
 
 /* .header .show-basket-btn:hover .basket-items{

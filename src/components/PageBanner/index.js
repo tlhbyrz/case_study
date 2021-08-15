@@ -1,13 +1,18 @@
 import React from 'react'
 import "./PageBanner.css"
 import { useDispatch, useSelector } from "react-redux";
-import { filterByColor, filterByBrand, sortProducts } from '../../store/actions/productsActions';
-import { SORT_TYPES } from '../../data/constants';
+import { sortProducts } from '../../store/actions/productsActions';
 
 const PageBanner = () => {
     const dispatch = useDispatch();
     const productsReducer = useSelector((state) => state.productsReducer);
-    const { allProducts, filteredProducts, filteredColor, filteredBrand,sortType } = productsReducer;
+    const {sortType } = productsReducer;
+
+    function handleSort(e){
+        if(e.target.value !== "Sıralama"){
+            dispatch(sortProducts(e.target.value))
+        }
+    }
 
     return (
         <section className="page-banner">
@@ -17,7 +22,7 @@ const PageBanner = () => {
                    <span>Aranan Kelime:</span>  iphone 11
                 </p>
             </div>
-            {<select id="filter-selectbox" value={sortType}>
+            {<select id="filter-selectbox" value={sortType} onChange={handleSort}>
                 <option defaultValue={true}>Sıralama</option>
                 <option  value="lowest_price">En Düşük Fiyat</option>
                 <option  value="highest_price">En Yüksek Fiyat</option>
