@@ -6,3 +6,5 @@ export const SORT_TYPES = {
     OldAdded: "old_product",
     NewlyAdded: "new_product"
 }
+
+export const MAX_PAGE_ITEMS = 12;

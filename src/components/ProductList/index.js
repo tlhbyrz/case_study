@@ -2,13 +2,14 @@ import React from 'react'
 import "./ProductList.css"
 import { useDispatch, useSelector } from "react-redux";
 import { addItemTobasket } from '../../store/actions/basketActions';
+import { MAX_PAGE_ITEMS } from '../../data/constants';
 
 const ProductList = () => {
     const dispatch = useDispatch();
     const basketReducer = useSelector((state) => state.basketReducer);
     const { basket } = basketReducer
     const productsReducer = useSelector((state) => state.productsReducer);
-    const { filteredProducts } = productsReducer
+    const { filteredProducts, currentPage } = productsReducer
 
     function addItem(item){
         dispatch(addItemTobasket(item))
@@ -21,7 +22,7 @@ const ProductList = () => {
                 filteredProducts.length > 0 ? (
                     <ul className="product-list">
                         {
-                            filteredProducts.map((item, index) => (
+                            filteredProducts.slice((currentPage -1) * MAX_PAGE_ITEMS, currentPage * MAX_PAGE_ITEMS).map((item, index) => (
                                 <li className="product" key={item.id}>
                                     <div className="image-wrapper">
                                         <img src={item.image} alt="phone-product" />

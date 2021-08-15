@@ -1,4 +1,4 @@
-import { SET_SEARCH_TEXT, SET_COLOR_FILTER, SET_BRAND_FILTER, SET_SORT_TYPE, SET_PRODUCTS_LOADING, SET_PRODUCTS_ERROR } from "../types"
+import { SET_SEARCH_TEXT,SET_PAGE, SET_COLOR_FILTER, SET_BRAND_FILTER, SET_SORT_TYPE, SET_PRODUCTS_LOADING, SET_PRODUCTS_ERROR } from "../types"
 import { SORT_TYPES } from "../../data/constants"
 
 
@@ -9,6 +9,24 @@ export const changeSearchText = (text) => async (dispatch) => {
         dispatch({
             type: SET_SEARCH_TEXT,
             payload: text
+        })
+    } catch (error) {
+        console.log(error.message)
+        dispatch({
+            type: SET_PRODUCTS_ERROR,
+            payload: error.message
+        })
+    }
+}
+
+
+export const changePageNumber = (page) => async (dispatch) => {
+    dispatch({ type: SET_PRODUCTS_LOADING })
+
+    try {
+        dispatch({
+            type: SET_PAGE,
+            payload: page
         })
     } catch (error) {
         console.log(error.message)

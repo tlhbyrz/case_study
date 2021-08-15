@@ -1,5 +1,12 @@
-import { SET_SEARCH_TEXT, SET_COLOR_FILTER, SET_BRAND_FILTER, SET_SORT_TYPE, SET_PRODUCTS_LOADING, SET_PRODUCTS_ERROR } from "../types"
+import { SET_SEARCH_TEXT,
+    SET_COLOR_FILTER,
+    SET_BRAND_FILTER,
+    SET_SORT_TYPE,
+    SET_PAGE,
+    SET_PRODUCTS_LOADING,
+    SET_PRODUCTS_ERROR } from "../types"
 import { products } from "../../data/products"
+import { MAX_PAGE_ITEMS } from "../../data/constants"
 
 const initialState = {
     allProducts: products,
@@ -8,6 +15,8 @@ const initialState = {
     filteredColor: "",
     filteredBrand: "",
     sortType: "",
+    currentPage: 1,
+    totalPage: Math.ceil(products.length / MAX_PAGE_ITEMS),
     loading: false,
     error: null
 }
@@ -21,6 +30,12 @@ export const productsReducer = (state = initialState, action) => {
                 filteredProducts: state.allProducts.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase())),
                 loading: false
             }  
+        case SET_PAGE:
+            return {
+                ...state,
+                currentPage: action.payload,
+                loading: false
+            } 
         case SET_COLOR_FILTER:
             return {
                 ...state,

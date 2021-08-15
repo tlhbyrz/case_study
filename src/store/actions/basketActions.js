@@ -6,7 +6,7 @@ export const addItemTobasket = (item) => async (dispatch, getState) => {
 
     try {
         const basket = getState().basketReducer.basket;
-        const newBasket = [item, ...basket]
+        const newBasket = [...basket, item]
 
         dispatch({
             type: ADD_ITEM_TO_BASKET,
