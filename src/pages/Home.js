@@ -19,11 +19,13 @@ const Home = () => {
         if(page !== undefined){
             if(formattedPage > 0 && formattedPage <= totalPage){
                 dispatch(changePageNumber(formattedPage))
+            }else if(formattedPage > totalPage){
+                dispatch(changePageNumber(totalPage))
             }else{
                 history.push("/products/1")
             }
         }
-    }, [page])
+    }, [page, totalPage])
 
     return (
         <div>
