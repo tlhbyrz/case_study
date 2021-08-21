@@ -1,4 +1,4 @@
-# Hepsiburada Case Study
+# Case Study
 
 Proje [Create React App](https://github.com/facebook/create-react-app) kullanılarak oluşturulmuş ve ayağa kaldırılmıştır.
 
